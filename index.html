@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karan Prajapati | Full Stack Developer (MERN Stack)</title>
+  <meta name="description" content="Portfolio of Karan Prajapati - Full Stack Developer specializing in React.js, Node.js, Express.js, MongoDB, and modern web application development. Completed BCA, pursuing MCA." />
+  <meta name="keywords" content="Karan Prajapati, Full Stack Developer, MERN Stack, React Developer, Node.js, Express, MongoDB, Surat, Web Developer Portfolio" />
+  <meta name="author" content="Karan Prajapati" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" id="brandLogo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">KP</span>
+        <span class="logo-bracket">/&gt;</span>
+        <span class="status-indicator" title="Open to opportunities">
+          <span class="status-dot"></span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#terminal" class="nav-link">Terminal</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Nav Controls -->
+      <div class="nav-actions">
+        <!-- Audio Synth Feedback Toggle -->
+        <button class="icon-btn" id="audioToggle" title="Toggle UI Sound Effects" aria-label="Toggle Sound">
+          <svg class="audio-on-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+          <svg class="audio-off-icon" style="display:none" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="1" y1="1" x2="23" y2="23"></line><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M23 9l-6 6"></path><path d="M17 9l6 6"></path></svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="icon-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" style="display:none" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Quick Resume Action -->
+        <button class="btn btn-primary btn-sm nav-cv-btn" id="openResumeModalBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Resume</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Slide Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <nav class="mobile-nav-links">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#terminal" class="mobile-link">Terminal</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary w-full" id="mobileResumeBtn">View & Download Resume</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="section hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-ping"></span>
+            <span class="badge-text">Available for Full Stack Opportunities</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Karan Prajapati</span>
+          </h1>
+
+          <div class="hero-role-wrapper">
+            <span class="role-static">I build</span>
+            <span class="role-dynamic" id="dynamicRole">MERN Stack Web Apps</span>
+            <span class="typing-cursor">|</span>
+          </div>
+
+          <p class="hero-description">
+            Passionate <strong>Full Stack Developer</strong> with 16 weeks of intensive industry internship experience at <em>SkillInfyTech IT Solutions</em>. Skilled in architecting responsive frontend interfaces and secure, scalable RESTful backends using <strong>React.js, Node.js, Express, MongoDB, and MySQL</strong>.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary btn-glow">
+              <span>Explore My Work</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <button class="btn btn-secondary" id="heroResumeBtn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>View & Download CV</span>
+            </button>
+            <a href="#contact" class="btn btn-ghost">
+              <span>Let's Talk</span>
+            </a>
+          </div>
+
+          <!-- Hero Social and Contact Quick Badges -->
+          <div class="hero-socials">
+            <a href="https://github.com/PrajaKaran" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub: PrajaKaran">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:karanprajapati0033@gmail.com" class="social-icon" title="Email: karanprajapati0033@gmail.com">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+            <a href="https://wa.me/919328995085?text=Hello%20Karan,%20I%20reviewed%20your%20portfolio" target="_blank" rel="noopener noreferrer" class="social-icon" title="WhatsApp: +91 9328995085">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.02L7.55 18.84L4.44 19.66L5.27 16.63L5.07 16.32C4.26 15.02 3.81 13.48 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.13 7.03C8.94 7.03 8.63 7.1 8.37 7.38C8.11 7.66 7.38 8.35 7.38 9.75C7.38 11.16 8.41 12.51 8.55 12.7C8.7 12.89 10.54 15.74 13.38 16.96C15.74 17.98 16.22 17.78 16.74 17.73C17.25 17.68 18.39 17.05 18.63 16.39C18.86 15.73 18.86 15.17 18.79 15.05C18.72 14.93 18.53 14.86 18.25 14.72C17.97 14.58 16.59 13.9 16.33 13.81C16.08 13.72 15.89 13.67 15.71 13.95C15.52 14.23 15 14.86 14.84 15.05C14.69 15.24 14.53 15.26 14.25 15.12C13.97 14.98 13.07 14.68 12 13.73C11.17 12.99 10.61 12.08 10.45 11.8C10.29 11.52 10.43 11.37 10.57 11.23C10.7 11.1 10.86 10.89 11 10.73C11.14 10.57 11.19 10.45 11.28 10.27C11.38 10.08 11.33 9.92 11.26 9.78C11.19 9.64 10.63 8.27 10.4 7.72C10.17 7.18 9.94 7.25 9.78 7.24C9.62 7.24 9.43 7.23 9.25 7.23C9.06 7.23 8.76 7.3 8.5 7.58L9.13 7.03Z"/></svg>
+            </a>
+            <div class="social-divider"></div>
+            <div class="location-tag">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Surat, Gujarat, India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Column -->
+        <div class="hero-visual">
+          <div class="profile-card-wrapper">
+            <div class="profile-glow-ring"></div>
+            <div class="profile-card">
+              <div class="profile-image-box">
+                <img src="./assets/karan_avatar.jpg" alt="Karan Prajapati - Full Stack Developer" class="profile-img" id="heroProfileImg" />
+                <div class="online-chip">
+                  <span class="online-indicator"></span>
+                  <span>Ready to Code</span>
+                </div>
+              </div>
+
+              <!-- Floating Tech Badges -->
+              <div class="floating-badge badge-top-right">
+                <div class="badge-icon react-icon">⚛</div>
+                <div class="badge-content">
+                  <span class="badge-label">Frontend</span>
+                  <span class="badge-val">React.js & Next</span>
+                </div>
+              </div>
+
+              <div class="floating-badge badge-bottom-left">
+                <div class="badge-icon node-icon">⚡</div>
+                <div class="badge-content">
+                  <span class="badge-label">Backend</span>
+                  <span class="badge-val">Node & Express</span>
+                </div>
+              </div>
+
+              <div class="floating-badge badge-middle-right">
+                <div class="badge-icon mongo-icon">🍃</div>
+                <div class="badge-content">
+                  <span class="badge-label">Databases</span>
+                  <span class="badge-val">MongoDB & MySQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Stats Ticker -->
+      <div class="container stats-container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-target="16">0</div>
+            <div class="stat-suffix">Wks+</div>
+            <div class="stat-label">Full Stack Internship @ SkillInfyTech</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="10">0</div>
+            <div class="stat-suffix">+</div>
+            <div class="stat-label">Full-Stack & Web Projects Built</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="15">0</div>
+            <div class="stat-suffix">+</div>
+            <div class="stat-label">Technologies, Frameworks & Tools</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-suffix">%</div>
+            <div class="stat-label">Dedication, Reliability & Clean Code</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Driven by Innovation & End-to-End Craftsmanship</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card story-card">
+            <div class="card-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <h3 class="card-title">My Journey & Philosophy</h3>
+            <p class="about-text">
+              I am a disciplined and passionate <strong>Full Stack Developer</strong> located in <strong>Surat, Gujarat</strong>. Having completed my <strong>Bachelor of Computer Applications (BCA)</strong> at <strong>Uka Tarsadia University</strong>, I am actively expanding my algorithmic and architectural mastery while pursuing my <strong>Master of Computer Applications (MCA)</strong>.
+            </p>
+            <p class="about-text">
+              During my intensive <strong>16-week Full Stack Internship at SkillInfyTech IT Solutions Private Limited</strong>, I contributed directly to live web architectures: developing modular React.js user interfaces, writing hardened Node.js/Express REST APIs, integrating MongoDB and MySQL, implementing JWT auth flows, and conducting agile code reviews.
+            </p>
+            <p class="about-text">
+              I am also the creator behind <strong>ElevateWeb</strong>, my web venture created to bridge thoughtful UI/UX with bulletproof, high-performance database design and responsive web engineering.
+            </p>
+          </div>
+
+          <div class="about-features-col">
+            <div class="feature-item">
+              <div class="feature-icon">🚀</div>
+              <div>
+                <h4 class="feature-title">End-to-End MERN Engineering</h4>
+                <p class="feature-desc">From pixel-perfect React user components to Express controller middleware and MongoDB schema indexing, I build complete web solutions.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">🛡️</div>
+              <div>
+                <h4 class="feature-title">RESTful Architecture & Security</h4>
+                <p class="feature-desc">Experienced in JWT authentication, bcrypt password hashing, role-based access control (RBAC), and sanitization.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">⚡</div>
+              <div>
+                <h4 class="feature-title">Agile & Continuous Learning</h4>
+                <p class="feature-desc">Strong problem-solver, communicative collaborator with Git workflows, and relentless learner embracing AI tools & modern web standards.</p>
+              </div>
+            </div>
+
+            <!-- Quick Details Card -->
+            <div class="quick-details-card">
+              <div class="detail-row">
+                <span class="detail-label">🎓 Education:</span>
+                <span class="detail-val">BCA Completed, Pursuing MCA</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">🏢 Experience:</span>
+                <span class="detail-val">16 Weeks Intern @ SkillInfyTech</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">📍 Base:</span>
+                <span class="detail-val">Surat, Gujarat, India</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">📧 Email:</span>
+                <span class="detail-val">karanprajapati0033@gmail.com</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">📱 Phone:</span>
+                <span class="detail-val">+91 9328995085</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Technical Arsenal</span>
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-subtitle">Click on any skill to highlight related real-world projects below</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="skills-categories-grid">
+          <!-- Frontend -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <span class="category-icon">🎨</span>
+              <h3 class="category-title">Frontend Engineering</h3>
+            </div>
+            <div class="skill-badges-container">
+              <button class="skill-tag" data-tech="React">React.js</button>
+              <button class="skill-tag" data-tech="Next.js">Next.js</button>
+              <button class="skill-tag" data-tech="JavaScript">JavaScript (ES6+)</button>
+              <button class="skill-tag" data-tech="Tailwind CSS">Tailwind CSS</button>
+              <button class="skill-tag" data-tech="Bootstrap">Bootstrap 5</button>
+              <button class="skill-tag" data-tech="HTML5">HTML5 / Semantic Web</button>
+              <button class="skill-tag" data-tech="CSS3">CSS3 / Responsive</button>
+              <button class="skill-tag" data-tech="Framer Motion">Framer Motion</button>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>React.js & State Management</span><span>92%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 92%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Responsive UI & CSS</span><span>95%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 95%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <span class="category-icon">⚙️</span>
+              <h3 class="category-title">Backend & APIs</h3>
+            </div>
+            <div class="skill-badges-container">
+              <button class="skill-tag" data-tech="Node.js">Node.js</button>
+              <button class="skill-tag" data-tech="Express">Express.js</button>
+              <button class="skill-tag" data-tech="REST API">RESTful APIs</button>
+              <button class="skill-tag" data-tech="JWT">JWT & Auth</button>
+              <button class="skill-tag" data-tech="Socket.io">Socket.io / WebSockets</button>
+              <button class="skill-tag" data-tech="CRUD">CRUD Architectures</button>
+              <button class="skill-tag" data-tech="Middleware">Middleware & Routing</button>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Node.js & Express REST APIs</span><span>88%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Authentication & API Security</span><span>85%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <span class="category-icon">💾</span>
+              <h3 class="category-title">Databases & Schemas</h3>
+            </div>
+            <div class="skill-badges-container">
+              <button class="skill-tag" data-tech="MongoDB">MongoDB</button>
+              <button class="skill-tag" data-tech="Mongoose">Mongoose ODM</button>
+              <button class="skill-tag" data-tech="MySQL">MySQL / Relational</button>
+              <button class="skill-tag" data-tech="RDBMS">RDBMS Normalization</button>
+              <button class="skill-tag" data-tech="Aggregation">Aggregation Pipelines</button>
+              <button class="skill-tag" data-tech="Indexing">Query Optimization</button>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>MongoDB & Document Modeling</span><span>90%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>MySQL & Complex Queries</span><span>84%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 84%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Programming Languages & Tools -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <span class="category-icon">🛠️</span>
+              <h3 class="category-title">Languages & Developer Tools</h3>
+            </div>
+            <div class="skill-badges-container">
+              <button class="skill-tag" data-tech="JavaScript">JavaScript</button>
+              <button class="skill-tag" data-tech="Java">Java</button>
+              <button class="skill-tag" data-tech="Python">Python</button>
+              <button class="skill-tag" data-tech="C">C / C++</button>
+              <button class="skill-tag" data-tech="Git">Git & GitHub</button>
+              <button class="skill-tag" data-tech="Postman">Postman</button>
+              <button class="skill-tag" data-tech="VS Code">VS Code</button>
+              <button class="skill-tag" data-tech="Vite">Vite & npm</button>
+              <button class="skill-tag" data-tech="XAMPP">XAMPP</button>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Git Workflow & Version Control</span><span>92%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 92%"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-info"><span>Problem Solving & Data Structures</span><span>86%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 86%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Featured Works</span>
+          <h2 class="section-title">Projects Built & Deployed</h2>
+          <p class="section-subtitle">Real-world applications engineered with modern stacks and production design</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- Project Filter Tabs -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Projects <span class="filter-count" id="countAll">8</span></button>
+          <button class="filter-btn" data-filter="mern">Full Stack (MERN) <span class="filter-count" id="countMern">5</span></button>
+          <button class="filter-btn" data-filter="ai">AI & Smart Tools <span class="filter-count" id="countAi">1</span></button>
+          <button class="filter-btn" data-filter="frontend">Frontend & Apps <span class="filter-count" id="countFrontend">2</span></button>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Populated dynamically via main.js for seamless filtering and modal interactions -->
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE TERMINAL SIMULATOR SECTION -->
+    <section class="section terminal-section" id="terminal">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Interactive Console</span>
+          <h2 class="section-title">Karan's Dev Terminal</h2>
+          <p class="section-subtitle">Type commands like <code class="terminal-inline">help</code>, <code class="terminal-inline">skills</code>, <code class="terminal-inline">projects</code>, <code class="terminal-inline">resume</code>, or <code class="terminal-inline">sudo hire karan</code></p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="terminal-window">
+          <div class="terminal-titlebar">
+            <div class="terminal-dots">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+            </div>
+            <div class="terminal-title">karan@developer-machine:~ (zsh)</div>
+            <button class="terminal-clear-btn" id="terminalClearBtn" title="Clear console">Clear</button>
+          </div>
+
+          <div class="terminal-body" id="terminalBody">
+            <div class="terminal-line banner-line">
+Welcome to Karan Prajapati's Interactive Developer Console!
+Type 'help' to see the list of available commands.
+===========================================================
+            </div>
+            <div class="terminal-history" id="terminalHistory"></div>
+            <div class="terminal-input-row">
+              <span class="terminal-prompt">karan@portfolio:~$</span>
+              <input type="text" id="terminalInput" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="Type a command..." />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION SECTION -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Background & Career</span>
+          <h2 class="section-title">Experience & Education</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="timeline-tabs-wrapper">
+          <div class="timeline-tabs">
+            <button class="timeline-tab-btn active" id="tabExpBtn">Work Experience</button>
+            <button class="timeline-tab-btn" id="tabEduBtn">Education & Academics</button>
+          </div>
+        </div>
+
+        <!-- Experience Content -->
+        <div class="timeline-container" id="experienceTimeline">
+          <div class="timeline-card">
+            <div class="timeline-badge-year">16 Weeks • 3 Months</div>
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Full Stack Developer Intern</h3>
+                <h4 class="timeline-company">SkillInfyTech IT Solutions Private Limited</h4>
+              </div>
+              <span class="badge badge-success">Internship</span>
+            </div>
+            <p class="timeline-summary">
+              Immersed in intensive full-stack development delivering scalable web applications under senior tech mentorship.
+            </p>
+            <ul class="timeline-list">
+              <li>Architected and deployed responsive full-stack applications utilizing the <strong>MERN Stack (React.js, Node.js, Express.js, MongoDB)</strong>.</li>
+              <li>Engineered robust REST APIs, managed database relations with <strong>MongoDB and MySQL</strong>, and implemented comprehensive error-handling middleware.</li>
+              <li>Engineered secure authentication systems with <strong>JWT</strong>, session state management, input validation, and performed extensive bug fixing.</li>
+              <li>Collaborated smoothly in a Git-driven team environment, participating in daily standups, code reviews, and project milestones.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>React.js</span>
+              <span>Node.js</span>
+              <span>Express.js</span>
+              <span>MongoDB</span>
+              <span>MySQL</span>
+              <span>REST APIs</span>
+              <span>Git & GitHub</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Content (hidden by default) -->
+        <div class="timeline-container" id="educationTimeline" style="display: none;">
+          <div class="timeline-card">
+            <div class="timeline-badge-year">Current</div>
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Master of Computer Applications (MCA)</h3>
+                <h4 class="timeline-company">Higher Technical Studies</h4>
+              </div>
+              <span class="badge badge-info">Pursuing</span>
+            </div>
+            <p class="timeline-summary">
+              Advancing knowledge in enterprise system design, advanced algorithms, cloud databases, and software engineering methodologies.
+            </p>
+          </div>
+
+          <div class="timeline-card">
+            <div class="timeline-badge-year">Batch 2023 – 2026</div>
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Bachelor of Computer Applications (BCA)</h3>
+                <h4 class="timeline-company">Uka Tarsadia University (UTU), Gujarat</h4>
+              </div>
+              <span class="badge badge-success">Completed</span>
+            </div>
+            <p class="timeline-summary">
+              Graduated with strong foundations in Data Structures, Object-Oriented Programming, Database Management Systems (RDBMS & SQL), Web Technologies, and Software Engineering.
+            </p>
+          </div>
+
+          <div class="timeline-card">
+            <div class="timeline-badge-year">Completed</div>
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Higher Secondary School Certificate (HSC 12th)</h3>
+                <h4 class="timeline-company">Gujarat Board (GSEB)</h4>
+              </div>
+              <span class="badge badge-secondary">Gujarat Board</span>
+            </div>
+            <p class="timeline-summary">
+              Strong secondary education foundation in analytical reasoning, mathematics, and computer fundamentals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE SNIPPET / ARCHITECTURE SHOWCASE -->
+    <section class="section code-section" id="code">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Code Quality</span>
+          <h2 class="section-title">Clean MERN Architecture</h2>
+          <p class="section-subtitle">A glimpse into how I structure modular, secure, and production-ready code</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="code-preview-window">
+          <div class="code-tabs">
+            <button class="code-tab active" data-tab="auth">authController.js</button>
+            <button class="code-tab" data-tab="routes">stationRoutes.js</button>
+            <button class="code-tab" data-tab="react">ProjectCard.jsx</button>
+          </div>
+          <div class="code-content">
+            <pre id="codeDisplay"><code class="language-javascript">// authController.js - Secure JWT Authentication
+import User from '../models/User.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+
+export const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ success: false, message: 'All fields are required.' });
+    }
+
+    const user = await User.findOne({ email }).select('+password');
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      return res.status(401).json({ success: false, message: 'Invalid email or password.' });
+    }
+
+    const token = jwt.sign(
+      { id: user._id, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+
+    res.status(200).json({
+      success: true,
+      token,
+      user: { id: user._id, name: user.name, email: user.email, role: user.role }
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Internal server error.' });
+  }
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Let's Connect</span>
+          <h2 class="section-title">Get In Touch With Me</h2>
+          <p class="section-subtitle">Interested in working together or hiring me for your team? Send a direct message!</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info Cards -->
+          <div class="contact-cards-col">
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-info-details">
+                <span class="info-label">Direct Email</span>
+                <span class="info-val">karanprajapati0033@gmail.com</span>
+              </div>
+              <button class="copy-btn" data-copy="karanprajapati0033@gmail.com" title="Copy Email">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="contact-info-details">
+                <span class="info-label">Call / WhatsApp</span>
+                <span class="info-val">+91 9328995085</span>
+              </div>
+              <button class="copy-btn" data-copy="+919328995085" title="Copy Phone Number">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="contact-info-details">
+                <span class="info-label">Current Location</span>
+                <span class="info-val">Surat, Gujarat, India</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/919328995085?text=Hello%20Karan,%20I%20am%20interested%20in%20your%20development%20skills" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-full">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.02L7.55 18.84L4.44 19.66L5.27 16.63L5.07 16.32C4.26 15.02 3.81 13.48 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.13 7.03C8.94 7.03 8.63 7.1 8.37 7.38C8.11 7.66 7.38 8.35 7.38 9.75C7.38 11.16 8.41 12.51 8.55 12.7C8.7 12.89 10.54 15.74 13.38 16.96C15.74 17.98 16.22 17.78 16.74 17.73C17.25 17.68 18.39 17.05 18.63 16.39C18.86 15.73 18.86 15.17 18.79 15.05C18.72 14.93 18.53 14.86 18.25 14.72C17.97 14.58 16.59 13.9 16.33 13.81C16.08 13.72 15.89 13.67 15.71 13.95C15.52 14.23 15 14.86 14.84 15.05C14.69 15.24 14.53 15.26 14.25 15.12C13.97 14.98 13.07 14.68 12 13.73C11.17 12.99 10.61 12.08 10.45 11.8C10.29 11.52 10.43 11.37 10.57 11.23C10.7 11.1 10.86 10.89 11 10.73C11.14 10.57 11.19 10.45 11.28 10.27C11.38 10.08 11.33 9.92 11.26 9.78C11.19 9.64 10.63 8.27 10.4 7.72C10.17 7.18 9.94 7.25 9.78 7.24C9.62 7.24 9.43 7.23 9.25 7.23C9.06 7.23 8.76 7.3 8.5 7.58L9.13 7.03Z"/></svg>
+              <span>Instant Chat on WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Working Interactive Contact Form -->
+          <div class="contact-form-card">
+            <h3 class="form-title">Send a Direct Message</h3>
+            <p class="form-desc">Messages submitted here are processed immediately and recorded locally.</p>
+
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="senderName" class="form-label">Your Name <span class="required">*</span></label>
+                  <input type="text" id="senderName" class="form-input" placeholder="e.g. Alex Johnson" required />
+                  <span class="field-error" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                  <label for="senderEmail" class="form-label">Your Email <span class="required">*</span></label>
+                  <input type="email" id="senderEmail" class="form-input" placeholder="e.g. alex@example.com" required />
+                  <span class="field-error" id="emailError"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="messageSubject" class="form-label">Subject <span class="required">*</span></label>
+                <input type="text" id="messageSubject" class="form-input" placeholder="e.g. Full Stack Developer Opportunity / Project Inquiry" required />
+                <span class="field-error" id="subjectError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="messageBody" class="form-label">Message <span class="required">*</span></label>
+                <textarea id="messageBody" class="form-textarea" rows="5" placeholder="Tell me about your project, team, or role..." required></textarea>
+                <span class="field-error" id="bodyError"></span>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-glow" id="formSubmitBtn">
+                  <span class="btn-text">Send Message</span>
+                  <svg class="send-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+                <button type="button" class="btn btn-secondary" id="viewMessageHistoryBtn">
+                  <span>View Sent History (<span id="inquiryCount">0</span>)</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="brand-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-text">Karan Prajapati</span>
+          <span class="logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer-tagline">Building modern, responsive, database-driven web applications with MERN Stack.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/PrajaKaran" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Karan Prajapati. Crafted with Vanilla CSS & Modern JS. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTopBtn" title="Back to top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div class="modal-overlay" id="projectModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Content injected dynamically via main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUME QUICK VIEW & DOWNLOAD MODAL -->
+  <div class="modal-overlay" id="resumeModal" aria-hidden="true">
+    <div class="modal-dialog resume-modal-dialog">
+      <button class="modal-close-btn" id="resumeModalCloseBtn" aria-label="Close dialog">&times;</button>
+      <div class="resume-modal-header">
+        <div class="resume-user-meta">
+          <h3 class="resume-name">Karan Prajapati</h3>
+          <span class="resume-role">Full Stack Developer • Surat, Gujarat</span>
+        </div>
+        <div class="resume-actions">
+          <a href="./assets/Karan_Prajapati_Resume.pdf" download="Karan_Prajapati_Resume.pdf" class="btn btn-primary btn-sm">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download Updated Resume (PDF)</span>
+          </a>
+          <a href="./assets/Karan_Prajapati_CV_Document.pdf" download="Karan_Prajapati_CV_Detailed.pdf" class="btn btn-secondary btn-sm">
+            <span>Download Detailed CV</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="resume-modal-body">
+        <div class="resume-preview-sheet">
+          <div class="sheet-section">
+            <h4 class="sheet-heading">Professional Summary</h4>
+            <p>
+              Full Stack Developer with 16 weeks of internship experience at <strong>SkillInfyTech IT Solutions Private Limited</strong>. Skilled in building responsive, database-driven web applications using React.js, Node.js, Express.js, MongoDB and MySQL. Completed Bachelor of Computer Applications (BCA) and currently pursuing Master of Computer Applications (MCA). Strong understanding of REST APIs, authentication, CRUD operations, and modern web development practices.
+            </p>
+          </div>
+
+          <div class="sheet-section">
+            <h4 class="sheet-heading">Professional Experience</h4>
+            <div class="sheet-item">
+              <div class="sheet-item-header">
+                <strong>Full Stack Developer Intern</strong>
+                <span>16 Weeks (3 Months)</span>
+              </div>
+              <div class="sheet-item-sub">SkillInfyTech IT Solutions Private Limited</div>
+              <ul class="sheet-bullets">
+                <li>Developed and maintained full-stack web applications using React.js, Node.js, Express.js and MongoDB.</li>
+                <li>Designed REST APIs, integrated databases, fixed bugs and implemented responsive UI.</li>
+                <li>Collaborated with mentors using Git-based workflows and delivered multiple real-world projects.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sheet-section">
+            <h4 class="sheet-heading">Education</h4>
+            <div class="sheet-item">
+              <div class="sheet-item-header">
+                <strong>Master of Computer Applications (MCA)</strong>
+                <span>Pursuing</span>
+              </div>
+            </div>
+            <div class="sheet-item">
+              <div class="sheet-item-header">
+                <strong>Bachelor of Computer Applications (BCA)</strong>
+                <span>Completed • Uka Tarsadia University</span>
+              </div>
+            </div>
+            <div class="sheet-item">
+              <div class="sheet-item-header">
+                <strong>Higher Secondary Certificate (12th)</strong>
+                <span>Gujarat Board</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sheet-section">
+            <h4 class="sheet-heading">Key Technical Skills</h4>
+            <p><strong>Languages:</strong> JavaScript, Java, Python, C, C++</p>
+            <p><strong>Frontend:</strong> React.js, HTML5, CSS3, Bootstrap, Tailwind CSS</p>
+            <p><strong>Backend:</strong> Node.js, Express.js, REST APIs</p>
+            <p><strong>Databases:</strong> MongoDB, MySQL</p>
+            <p><strong>Tools:</strong> Git, GitHub, VS Code, Postman, XAMPP, Vite</p>
+          </div>
+
+          <div class="sheet-section">
+            <h4 class="sheet-heading">Strengths</h4>
+            <div class="sheet-tags">
+              <span>Problem Solving</span>
+              <span>Teamwork</span>
+              <span>Communication</span>
+              <span>Fast Learner</span>
+              <span>Adaptability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SENT INQUIRY HISTORY DRAWER -->
+  <div class="modal-overlay" id="historyModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="historyCloseBtn" aria-label="Close dialog">&times;</button>
+      <div class="modal-body">
+        <h3 class="modal-title">Sent Inquiries & Messages</h3>
+        <p class="modal-desc">Locally recorded messages sent through your portfolio contact form:</p>
+        <div class="history-list" id="historyList">
+          <!-- Dynamic message entries -->
+        </div>
+        <div class="modal-footer-actions">
+          <button class="btn btn-secondary btn-sm" id="clearHistoryBtn">Clear Sent History</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Main JavaScript bundle -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
