@@ -506,11 +506,11 @@ function initDynamicRoleTyping() {
   if (!roleElement) return;
 
   const roles = [
-    'MERN Stack Web Apps',
-    'Scalable RESTful APIs',
-    'Interactive React UIs',
+    'MERN Stack Applications',
+    'Responsive React Interfaces',
+    'Secure Node.js & Express APIs',
     'MongoDB & MySQL Solutions',
-    'Production Web Architectures'
+    'Practical, User-Centric Web Apps'
   ];
 
   let roleIndex = 0;
