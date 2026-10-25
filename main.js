@@ -169,6 +169,26 @@ export const PROJECTS_DATA = [
     tech: ['JavaScript (ES6+)', 'HTML5 Semantic', 'Vanilla CSS3', 'Local Storage', 'Glassmorphism'],
     liveUrl: 'https://github.com/PrajaKaran',
     githubUrl: 'https://github.com/PrajaKaran'
+  },
+  {
+    id: 'weather-forecast-3d',
+    title: 'Interactive 3D Globe & Weather Forecast',
+    category: 'frontend',
+    categoryLabel: 'Frontend Engineering',
+    badge: 'React + 3D Globe',
+    thumbnail: './assets/weather_forecast_portfolio.png',
+    summary: 'A modern React weather forecasting application featuring interactive 3D Earth visualization, global city search, and geolocation detection.',
+    description: `A modern React application that delivers real-time weather forecasts across the globe. It features instant city search, automatic geolocation detection, seamless light and dark theme modes, and a unique interactive 3D Earth globe that enables users to visually check real-time meteorological conditions anywhere on Earth.`,
+    features: [
+      'Interactive 3D Earth globe powered by Three.js/WebGL for visual weather exploration',
+      'Real-time atmospheric forecasts: temperature, humidity, wind velocity, UV index, and air quality',
+      'Instant global city search with local storage caching for recent search history',
+      'Automatic browser geolocation detection with graceful coordinate fallbacks',
+      'Adaptive Light and Dark theme modes with dynamic weather status iconography'
+    ],
+    tech: ['React.js', 'Vite', 'Three.js / WebGL', 'Lucide React', 'OpenWeather API', 'Axios', 'Tailwind CSS'],
+    liveUrl: 'https://PrajaKaran.github.io/weather-forecast',
+    githubUrl: 'https://github.com/PrajaKaran/weather-forecast'
   }
 ];
 
@@ -772,6 +792,10 @@ function initProjectsModule() {
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </button>
             <div class="project-ext-links">
+              ${project.liveUrl && project.liveUrl !== 'https://github.com/PrajaKaran' && project.liveUrl !== project.githubUrl ? `
+              <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="ext-link-icon" title="View Live Demo">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>` : ''}
               <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="ext-link-icon" title="View Source on GitHub">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               </a>
@@ -911,7 +935,12 @@ function initModals() {
       </div>
 
       <div class="modal-btn-row">
-        <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        ${project.liveUrl && project.liveUrl !== 'https://github.com/PrajaKaran' && project.liveUrl !== project.githubUrl ? `
+        <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          <span>Live Demo</span>
+        </a>` : ''}
+        <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn ${project.liveUrl && project.liveUrl !== 'https://github.com/PrajaKaran' && project.liveUrl !== project.githubUrl ? 'btn-secondary' : 'btn-primary'}">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span>Explore Repository</span>
         </a>
@@ -1129,7 +1158,8 @@ Passions : High-scale web systems, interactive UIs, REST APIs, clean database mo
   6. blogging-publishing-platform - Developer CMS & Blog Publishing Suite
   7. flight-booking-flyapp - FlyApp Flight Ticket Reservation Experience
   8. gourmet-restaurant-showcase - Gourmet Dine Table & Menu Showcase
-Type 'project <id>' to inspect details (e.g. 'project ai-resume-builder')`,
+  9. weather-forecast-3d - Interactive 3D Earth & Real-Time Weather Forecast (React)
+Type 'project <id>' to inspect details (e.g. 'project weather-forecast-3d')`,
 
     experience: `PROFESSIONAL INTERNSHIP:
 Company : SkillInfyTech IT Solutions Private Limited

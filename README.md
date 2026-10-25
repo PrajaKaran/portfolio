@@ -26,7 +26,7 @@ Experience the live portfolio: **[https://prajakaran.github.io/portfolio/](https
 ## ✨ Key Features
 
 - **Dynamic Interactive Terminal**: Built-in developer console supporting commands like `help`, `about`, `skills`, `projects`, `sudo hire karan`, etc.
-- **8 Production Projects**: Case study modals, high-resolution mockups, live links, and full architectural breakdowns.
+- **9 Production Projects**: Case study modals, high-resolution mockups, live links, and full architectural breakdowns.
 - **Dark & Light Modes**: State persistence via `localStorage` with smooth SVG icon transitions.
 - **Contact Center & Local History**: Validated contact form with instant toast feedback and saved message drawer.
 - **Resume & CV Modals**: Instant PDF preview and one-click download buttons for recruiters.
